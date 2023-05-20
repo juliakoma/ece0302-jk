@@ -11,7 +11,7 @@ public:
   virtual ~AbstractOperator() {};
 
   virtual T call(T arg1, T arg2) const = 0;
-
+hi
 private:
 
 };
