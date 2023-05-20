@@ -44,7 +44,9 @@ public:
   std::string asString() const;
 
 private:
-
+    intmax_t size;
+    bool* bits;
+    bool valid;
   // TODO
 };
 

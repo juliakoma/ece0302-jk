@@ -13,7 +13,6 @@ public:
   T call(T arg1, T arg2) const;
 
 private:
-
 };
 
 #include "add.tpp"
