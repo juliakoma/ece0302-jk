@@ -109,7 +109,7 @@ void Bitset::reset(intmax_t index){
 
 //Method to toggle the nth bit (1 to 0 or 0 to 1)
 void Bitset::toggle(intmax_t index){
-    if (index < 0 || index > N){
+    if (index < 0 || index >= N){
         valid = false;
         return;
     }

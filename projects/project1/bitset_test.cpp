@@ -84,3 +84,24 @@ TEST_CASE( "Test combined", "[bitset]" ) {
         REQUIRE(((b.test(i + (1<<11)) == true && s.at(i + (1<<11)) == '0') || (b.test(i + (1<<11)) == false && s.at(i + (1<<11)) == '1')));
     }
 }
+
+TEST_CASE( "Test bitset construction string 1 ", "[bitset]" ) {
+    std::string s("0010110110101");
+    Bitset b(s);
+    REQUIRE(b.size() == s.size());
+    REQUIRE(b.good());
+    REQUIRE(b.asString().compare(s) == 0);
+}
+
+TEST_CASE( "Test bitset construction invalid string 2 ", "[bitset]" ) {
+    std::string s("a010110110101");
+    Bitset b(s);
+    REQUIRE_FALSE(b.good());
+}
+
+TEST_CASE( "Test bitset construction size 2 ", "[bitset]" ) {
+    Bitset b(30);
+    std::string s(30, '0');
+    REQUIRE(b.size() == 30);
+    REQUIRE(b.good());
+}
