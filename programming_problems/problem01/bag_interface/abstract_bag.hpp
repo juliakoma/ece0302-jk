@@ -1,17 +1,10 @@
-#ifndef _ABSTRACT_BAG_HPP_
-#define _ABSTRACT_BAG_HPP_
+#ifndef ABSTRACT_BAG_HPP
+#define ABSTRACT_BAG_HPP
 
 #include <cstdlib>
 
-//TODO
-
-#include "abstract_bag.hpp"
-
-template<typename T> class Bag{
+template<typename T> class AbstractBag{
 public:
-  virtual Bag() = 0;
-  
-  virtual ~Bag() = 0;
 
   virtual std::size_t getCurrentSize() const = 0;
 
@@ -27,17 +20,7 @@ public:
 
   virtual bool contains(const T& entry) const = 0;
 
-  virtual static const std::size_t MAXSIZE = 100 = 0;
-  
-private:
-  // implementation using fixed automatic storage
-  std::size_t size;
-  
-  T data[MAXSIZE];
 };
-
-#include "bag_simple.tpp"
-
 
 
 #endif
