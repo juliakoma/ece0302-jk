@@ -17,3 +17,18 @@ TEST_CASE("Calling all public members", "[DynamicBag]"){
   b.getFrequencyOf(0);
   b.contains(0);
 }
+
+TEST_CASE("Default Constructor", "[DynamicBag]"){
+  DynamicBag<int> b;
+  REQUIRE(b.getCurrentSize() == 0);
+  REQUIRE(b.isEmpty());
+}
+
+TEST_CASE("Copy constructor", "[DynamicBag]") {
+    // Create an original bag
+    DynamicBag<int> bag1;
+
+    DynamicBag<int> bag2 = bag1;
+
+    bag1 = bag2;
+}

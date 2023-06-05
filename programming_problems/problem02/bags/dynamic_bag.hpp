@@ -46,6 +46,9 @@ public:
 private:
 
   // TODO
+  int* array;
+  int capacity;
+  int size; 
 };
 
 #include "dynamic_bag.tpp"
