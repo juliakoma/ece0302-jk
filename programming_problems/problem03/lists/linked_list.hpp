@@ -46,8 +46,11 @@ public:
 
 private:
 
-  //TODO
-  
+  // pointer to head node
+  Node<T>* head;
+
+  // size variable of length
+  std::size_t length;
 };
 
 #include "linked_list.tpp"

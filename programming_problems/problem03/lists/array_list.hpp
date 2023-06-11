@@ -46,8 +46,11 @@ public:
 
 private:
 
-  // TODO
-  
+  // pointer to array
+  T* array;
+
+  // size variable of length
+  std::size_t length;  
 };
 
 #include "array_list.tpp"
