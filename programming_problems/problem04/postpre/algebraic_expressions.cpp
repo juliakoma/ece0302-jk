@@ -2,6 +2,7 @@
 using std::string;
 
 #include <iostream>
+#include <stack>
 
 #include <cctype> // for isalpha
 
@@ -42,7 +43,49 @@ bool isPost(string s) {
 }
 
 void convert(string &postfix, string &prefix) {
+  std::stack<string> stack; // Stack to hold operands and intermediate results
 
-  // TODO
-  
+  for (size_t i = 0; i < postfix.size(); i++) {
+    char ch = postfix[i];
+
+    if (isalpha(ch))
+    {
+      // Create a string with the current operand character with a length of 1
+      std::string operand(1, ch); 
+
+      // Push the operand onto the stack
+      stack.push(operand); 
+    } 
+    else if (isoperator(ch)) 
+    {
+      // Get the top operand from the stack
+      std::string operand2 = stack.top(); 
+
+      // Pop the top operand
+      stack.pop(); 
+
+      // Get the next operand from the stack  
+      std::string operand1 = stack.top(); 
+
+      // Pop the next operand
+      stack.pop(); 
+
+      // Combine the operator and operands
+      std::string result = ch + operand1 + operand2; 
+
+      // Push the intermediate result back onto the stack
+      stack.push(result); 
+    } 
+  }
+
+  if (stack.size() == 1) 
+  {
+    // The final result is the only element left on the stack
+    prefix = stack.top(); 
+  } 
+  else
+   {
+    // More than one element left on the stack
+    prefix = "Invalid postfix expression"; 
+  }
 }
